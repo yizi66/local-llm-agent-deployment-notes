@@ -25,7 +25,7 @@
 - Python 3.10+
 - [Ollama](https://ollama.com/download) 已安装
 - NVIDIA GPU（可选，纯 CPU 也可运行）
-### 1. 安装依赖
+1. 安装依赖
 ```bash
 pip install -r requirements.txt
 2. 拉取模型
@@ -39,7 +39,6 @@ Bash
 python agent.py
 在终端输入问题，Agent 将自动调用天气查询、Wikipedia 搜索等工具。
 
-架构图
 项目结构
 Text
 local-llm-agent-deployment-notes/
@@ -67,13 +66,13 @@ Cherry Studio 直接连接 Ollama 时，/v1/chat/completions 端点返回的 too
 同时指定 TEMPLATE 和 PARAMETER stop 会导致 /v1 端点过滤掉控制 token，返回空消息
 解决：只需在 Modelfile 中提供 TEMPLATE，Ollama 会自动推断停止词
 技术栈
-层级	技术	说明
-模型	Qwen2.5-Coder 7B	本地推理引擎
-模型服务	Ollama	本地模型管理 & API 服务
-代理	LiteLLM	OpenAI 协议转换
-客户端	Cherry Studio (部分可用)	GUI 对话客户端
-Agent	agent.py (Python)	自建工具调用循环
-工具	Open-Meteo API, Wikipedia	通过 HTTP 调用
+层级	    技术	                  说明
+模型	    Qwen2.5-Coder 7B	       本地推理引擎
+模型服务	 Ollama	                   本地模型管理 & API 服务
+代理	    LiteLLM	                   OpenAI 协议转换
+客户端	    Cherry Studio (部分可用)	GUI 对话客户端
+Agent	    agent.py (Python)	           自建工具调用循环
+工具	    Open-Meteo API, Wikipedia	通过 HTTP 调用
 使用示例
 查询天气
 Text
@@ -89,7 +88,7 @@ AI: Qwen 是阿里巴巴推出的通用语言模型系列...
 欢迎提 Issue 分享你在本地 Agent 部署中遇到的新坑与解决方案！
 
 许可证
-MIT © 
+MIT ©yan 
 
 
 
