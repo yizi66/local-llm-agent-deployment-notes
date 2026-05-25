@@ -1,0 +1,9 @@
+﻿FROM C:\Users\yan\Qwen2.5-Coder-7B-Instruct-abliterated-Q4_K_M.gguf
+PARAMETER temperature 0.7
+PARAMETER num_ctx 8192
+TEMPLATE """{{ if .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}{{ if .Prompt }}<|im_start|>user
+{{ .Prompt }}<|im_end|>
+{{ end }}<|im_start|>assistant
+"""
