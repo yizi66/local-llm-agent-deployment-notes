@@ -101,13 +101,13 @@ local-llm-agent-deployment-notes/
 
 ### 1. 模型下载：hf-mirror 限速与多线程策略
 
-- 单线程 `aria2c -x 1` 避免触发镜像站限速，稳定在 300 KB/s
+- 单线程 `aria2c -x 1` 避免触发镜像站限速，不是特别稳定，可能表现为下载速度随时间递减
 - `hf download` 自带校验，适合断点续传
 - `ollama pull` 官方库有时可直接访问，速度快于手动下载
 
 ### 2. Abliterated（去审查）模型不可用
 
-- `bartowski/...-abliterated` 版本缺失 `chat_template`，导致对话乱码、工具调用输出字符串而非 JSON
+- `bartowski/...-abliterated` 版本缺失 `chat_template`，导致对话乱码、在openhuman里工具调用输出字符串而非 JSON
 - **结论**：7B 规模上，去审查技术牺牲了指令遵循能力，得不偿失
 
 ### 3. Ollama 与 OpenAI 函数调用协议差异
